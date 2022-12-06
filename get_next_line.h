@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nexus <nexus@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:55 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/05 01:33:35 by nexus            ###   ########.fr       */
+/*   Updated: 2022/12/06 19:28:20 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 size_t	ft_strlen(char *str);
 int		create_line(char **line_ptr, char *buffer, size_t size);
-void	reset_buffer_contents(char *buffer, int size);
+int		buff_check(char *buffer);
 char	*get_next_line(int fd);
 
 #endif

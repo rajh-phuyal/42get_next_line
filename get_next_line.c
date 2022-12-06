@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nexus <nexus@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:03 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/05 01:49:00 by nexus            ###   ########.fr       */
+/*   Updated: 2022/12/06 19:50:39 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
+	char		buffer[BUFFER_SIZE];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0)
+	if (BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0)
 		return (NULL);
 	line = NULL;
 	while (true)
@@ -26,16 +26,14 @@ char *get_next_line(int fd)
 		if (*buffer)
 		{
 			if (create_line(&line, buffer, ft_strlen(buffer)))
-			{
-				reset_buffer_contents(buffer, BUFFER_SIZE);
 				break ;
-			}
 		}
 		if (!read(fd, buffer, BUFFER_SIZE))
 			break ;
 	}
 	return (line);
 }
+
 /*
 char *get_next_line(int fd)
 {
@@ -61,7 +59,6 @@ char *get_next_line(int fd)
 	return (line);
 }
 */
-/*
 int	main(void)
 {
 	int		fd;
@@ -80,4 +77,3 @@ int	main(void)
 	if (line)
 		free (line);
 }
-*/
