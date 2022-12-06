@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:03 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/06 19:50:39 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/06 23:49:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*get_next_line(int fd)
 
 	if (BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0)
 		return (NULL);
+	if (!(*buffer))
+		putnull(buffer);
 	line = NULL;
 	while (true)
 	{

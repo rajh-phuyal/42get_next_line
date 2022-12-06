@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:53 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/06 19:58:52 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/06 23:46:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	putnull(char *buffer)
+{
+	size_t	index;
+
+	while (index < BUFFER_SIZE)
+		buffer[index++] = '\0';
+}
 
 size_t	ft_strlen(char *str)
 {
@@ -28,26 +36,21 @@ size_t	ft_strlen(char *str)
 
 int	buff_check(char *buffer)
 {
-	unsigned int	index;
-	unsigned int	indexj;
-	unsigned int	size;
+	char	*start;
+	char	*temp;
 
-	index = 0;
-	size = sizeof(buffer);
-	while (index < size)
+	while (*buffer)
 	{
-		if (buffer[index] == 10)
+		if (*buffer == 10)
 		{
-			indexj = 0;
-			while (indexj < size - 1)
-			{
-				buffer[indexj] = buffer[indexj + index];
-				buffer[indexj + index] = '\0';
-				indexj++;
-			}
+			*buffer = '\0';
+			temp = buffer + 1;
+			while (*temp)
+				*start++ = *temp++;
 			return (1);
 		}
-		buffer[index++] = '\0';
+		else
+			*buffer++ = '\0';
 	}
 	return (0);
 }
@@ -61,7 +64,7 @@ int	create_line(char **line_ptr, char *buffer, size_t size)
 
 	inew = 0;
 	l_alias = *line_ptr;
-	*line_ptr = malloc(sizeof(char) * (size + ft_strlen(l_alias) + 2));
+	*line_ptr = malloc(sizeof(char) * (size + ft_strlen(l_alias) + 1));
 	if (!(*line_ptr))
 		return (0);
 	if (l_alias)
