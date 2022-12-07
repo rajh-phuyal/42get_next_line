@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 20:53:38 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/07 20:54:06 by rphuyal          ###   ########.fr       */
+/*   Created: 2022/12/07 20:49:15 by rphuyal           #+#    #+#             */
+/*   Updated: 2022/12/07 20:52:01 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-char	*get_next_line(int fd)
-{
-	static char	buffer[BUFFER_SIZE];
-	char		*line;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
+# include <stdio.h>
 
-	if (BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
-	{
-		clear_buffer(buffer);
-		return (NULL);
-	}
-	line = NULL;
-	while (true)
-	{
-		if (*buffer)
-		{
-			if (create_line(&line, buffer, ft_strlen(buffer)))
-				break ;
-		}
-		if (!read(fd, buffer, BUFFER_SIZE))
-			break ;
-	}
-	return (line);
-}
+void	clear_buffer(char *buffer);
+size_t	ft_strlen(char *str);
+int		create_line(char **line_ptr, char *buffer, size_t size);
+int		manage_buffer(char *buffer);
+char	*get_next_line(int fd);
+
+#endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nexus <nexus@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 13:58:55 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/07 00:31:30 by nexus            ###   ########.fr       */
+/*   Created: 2022/12/07 20:53:28 by rphuyal           #+#    #+#             */
+/*   Updated: 2022/12/07 20:53:31 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
 # include <stdbool.h>
 # include <stdio.h>
 
+void	clear_buffer(char *buffer);
 size_t	ft_strlen(char *str);
 int		create_line(char **line_ptr, char *buffer, size_t size);
-int		buff_check(char *buffer);
+int		manage_buffer(char *buffer);
 char	*get_next_line(int fd);
 
 #endif
