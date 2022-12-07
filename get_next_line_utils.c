@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nexus <nexus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:53 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/06 23:46:34 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/07 00:29:53 by nexus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	putnull(char *buffer)
-{
-	size_t	index;
-
-	while (index < BUFFER_SIZE)
-		buffer[index++] = '\0';
-}
 
 size_t	ft_strlen(char *str)
 {
@@ -39,6 +31,7 @@ int	buff_check(char *buffer)
 	char	*start;
 	char	*temp;
 
+	start = buffer;
 	while (*buffer)
 	{
 		if (*buffer == 10)

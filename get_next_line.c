@@ -3,25 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: nexus <nexus@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:03 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/06 23:49:34 by codespace        ###   ########.fr       */
+/*   Updated: 2022/12/07 00:33:36 by nexus            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*get_next_line(int fd)
 {
-	char		buffer[BUFFER_SIZE];
+	static char	buffer[BUFFER_SIZE];
 	char		*line;
 
 	if (BUFFER_SIZE < 1 || read(fd, buffer, 0) < 0)
 		return (NULL);
-	if (!(*buffer))
-		putnull(buffer);
 	line = NULL;
 	while (true)
 	{
