@@ -6,7 +6,7 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:38 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/07 20:54:06 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/13 14:59:15 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
+	static char	buffer[BUFFER_SIZE + 1];
 	char		*line;
 
 	if (BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
