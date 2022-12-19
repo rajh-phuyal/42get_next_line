@@ -6,23 +6,26 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:28 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/13 14:58:40 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/19 21:14:54 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+/* if the buffersize is not manully defined during compilation*/
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
 
+/* necessary libraries */
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <fcntl.h>
 
+/* function prototypes */
 void	clear_buffer(char *buffer);
 size_t	ft_strlen(char *str);
 int		create_line(char **line_ptr, char *buffer, size_t size);

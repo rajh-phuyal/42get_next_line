@@ -6,12 +6,16 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:38 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/13 14:59:15 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/19 21:14:55 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+/*
+the get next line function uses a static array to keep track of the
+offset of the file discriptor and also returns the current line.
+*/
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];

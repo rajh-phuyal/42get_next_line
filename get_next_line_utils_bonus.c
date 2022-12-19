@@ -6,7 +6,7 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:58:53 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/07 20:48:29 by rphuyal          ###   ########.fr       */
+/*   Updated: 2022/12/19 21:18:31 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	clear_buffer(char *buffer)
 	index = 0;
 	if (!buffer)
 		return ;
-	while (index <= BUFFER_SIZE)
+	while (index < (size_t)BUFFER_SIZE)
 		buffer[index++] = '\0';
 }
 
@@ -35,6 +35,10 @@ size_t	ft_strlen(char *str)
 	return (len + (str[len] == 10));
 }
 
+/*
+manage buffer helps keep track of the characters if the file offset passed a newline.
+When a newline is encountered, all the characters after the newline are sifted to the start of the buffer.
+*/
 int	manage_buffer(char *buffer)
 {
 	char	*start;
@@ -52,14 +56,18 @@ int	manage_buffer(char *buffer)
 				*start++ = *temp;
 				*temp++ = '\0';
 			}
-			return (1);
+			return (true);
 		}
 		else
 			*buffer++ = '\0';
 	}
-	return (0);
+	return (false);
 }
 
+/* 
+function create_line joins the last array that was pointed by line in get_next_line
+and the current buffer until the newline is reached
+*/
 int	create_line(char **line_ptr, char *buffer, size_t size)
 {
 	char	*l_alias;
